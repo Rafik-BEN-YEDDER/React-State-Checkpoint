@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import Profile from './Components/Profile';
+import{Button} from 'react-bootstrap'
+export default class App extends Component {
+  constructor(props){
+    super(props)
+    this.state={show:true}
+  }
+  render() {
+    return (
+      <div style={{display:'flex' ,justifyContent:'center',flexDirection:'column'}}>
+        {this.state.show && <Profile fullName='Rafik BEN YEDDER' bio='NINJA' imgSrc='https://st.depositphotos.com/2400497/3428/v/600/depositphotos_34287663-stock-illustration-cartoon-ninja.jpg' profession='Engineer' />}
+        <Button variant="primary" onClick={()=>this.setState({show: !this.state.show})} >Show/Hide</Button>
+      </div>
+    )
+  }
 }
 
-export default App;
